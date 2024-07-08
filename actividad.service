@@ -1,0 +1,17 @@
+[Unit]
+Description=Actividad App
+After=cloud-final.service
+
+[Service]
+WorkingDirectory=/home/ec2-user
+ExecStart=/usr/bin/node /home/ec2-user/actividad_app.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=actividad-app
+User=ec2-user
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=cloud-init.target
